@@ -1,0 +1,23 @@
+node()
+{
+    stage('checkout')
+    {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '8191df1b-d578-4b40-8d2b-79e1b11f4759', url: 'https://github.com/sanatabas/sana1']]])
+
+        
+    }
+    stage('Run static analysis'){
+      echo "Running static analysis"  
+    }
+    stage('Build')
+    {
+     echo "build started"
+    }
+    stage('deploy')
+    {
+        echo "deploying artifact"
+    }
+    stage('test automation'){
+      echo "started test"  
+    }
+}
